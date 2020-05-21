@@ -41,23 +41,24 @@ function init () {
                 flightStatus.innerHTML = "Mission aborted.";
                 document.getElementById("shuttleBackground").style.backgroundColor = "green";
                 document.getElementById("spaceShuttleHeight").innerHTML = 0;
-                rocket.style.position = "relative";
+                rocket.style.position = "initial";
             }
     }
 
     missionAbort.addEventListener("click", abort);
 
     let rockX = 0;
+    let rockY = 0;
     function translateX(num) {
         rockX += +num;
         rocket.style.position = "relative";
-        rocket.style.transform = "translateX(" + rockX + "px)";
+        rocket.style.transform = "translate(" + rockX + "px, " + rockY + "px)";
         }
-    let rockY = 0;
+    
     function translateY(num) {    
         rockY += +num;
         rocket.style.position = "relative";
-        rocket.style.transform = "translateY(" + rockY + "px)";
+        rocket.style.transform = "translate(" + rockX + "px, " + rockY + "px)";
         }
 
     move.forEach(function(element) {
