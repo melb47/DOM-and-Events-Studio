@@ -6,6 +6,8 @@ let flightStatus = null;
 let missionAbort = null;
 let move = null;
 let rocket = null;
+let rockX = 0;
+let rockY = 0;
 
 function init () {
     missionAbort = document.getElementById("missionAbort");
@@ -31,6 +33,9 @@ function init () {
         flightStatus.innerHTML = "The shuttle has landed.";
         document.getElementById("shuttleBackground").style.backgroundColor = "green";
         document.getElementById("spaceShuttleHeight").innerHTML = 0;
+        rockX = 0;
+        rockY = 250;
+        rocket.style.transform = "translate(" + rockX + "px, " + rockY + "px)";
     }
 
     landing.addEventListener("click", land);
@@ -41,14 +46,15 @@ function init () {
                 flightStatus.innerHTML = "Mission aborted.";
                 document.getElementById("shuttleBackground").style.backgroundColor = "green";
                 document.getElementById("spaceShuttleHeight").innerHTML = 0;
-                rocket.style.position = "initial";
+                rockX = 0;
+                rockY = 250;
+                rocket.style.transform = "translate(" + rockX + "px, " + rockY + "px)";
             }
     }
 
     missionAbort.addEventListener("click", abort);
 
-    let rockX = 0;
-    let rockY = 0;
+
     function translateX(num) {
         rockX += +num;
         rocket.style.position = "relative";
